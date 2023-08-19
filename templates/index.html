@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Website</th>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td><a href="https://{{item.website}}" target="_blank">{{item.website}}</a></td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.password}}</td>
+                    <td>
+                        <form action="/edit" method="POST">
+                            <input name="edit" value="{{item.id}}" type="hidden">
+                            <button class="btn btn-primary" type="submit">Edit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/delete" method="POST">
+                            <input name="delete" value="{{item.id}}" type="hidden">
+                            <button class="btn btn-primary" type="submit">Delete</button>
+                        </form>
+                        
+                    </td>
+                </tr>
+            {% endfor %}    
+        </tbody>
+           
+    </table>
+    
+
+{% endblock %}

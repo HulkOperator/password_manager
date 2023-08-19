@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/change" method="POST">
+
+        <div class="mb-3">
+            <input placeholder="Current Password" class="form-control mx-auto w-auto" autofocus autocomplete="off" name="e_password" type="password">
+        </div>
+        <div class="mb-3">
+            <input placeholder="New Password" class="form-control mx-auto w-auto" autocomplete="off" name="password" type="password">
+        </div>
+        <div class="mb-3">
+            <input placeholder="Confirmation" class="form-control mx-auto w-auto" autocomplete="off" name="confirmation" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Change Password</button>
+    </form>
+{% endblock %}

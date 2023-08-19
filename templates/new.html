@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="POST">
+        {% if flag == 1 %}
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" placeholder="Website" autofocus autocomplete="off" name="website" type="text" value="{{website}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" placeholder="Username" autofocus autocomplete="off" name="username" type="text" value="{{username}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" placeholder="Password" autocomplete="off" name="password" type="text" value="{{password}}">
+        </div>
+        {% else %}
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" placeholder="Website" autofocus autocomplete="off" name="website" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" placeholder="Username" autofocus autocomplete="off" name="username" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" placeholder="Password" autocomplete="off" name="password" type="text">
+        </div>
+        {% endif %}
+        <button class="btn btn-primary" type="submit" name="cmd" value="save">Save</button>
+        {% if flag == 1 %}
+        <br><br>
+        <input placeholder="Length: {{len}}" autocomplete="off" type="number" name="length" type="hidden" value="{{len}}" size="2">
+        {% endif %}
+        <button class="btn btn-primary" type="submit" name="cmd" value="generate">Generate</button>
+    </form>
+{% endblock %}
